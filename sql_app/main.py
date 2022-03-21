@@ -28,7 +28,9 @@ def index():
 # Seeds users and returns all records in users table
 @app.get("/users/")
 def get_all_users():
-    # TODO: WHY DO WE NEED next()??
+    # We need next() to get return value from Python functions that `yield`
+    # rather than `return`. This gets the actual value from the yielded
+    # generator object.
     db = next(get_db_sesh())
 
     if db:
