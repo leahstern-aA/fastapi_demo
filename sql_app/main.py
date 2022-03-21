@@ -1,7 +1,6 @@
-from fastapi import FastAPI, HTTPException, Depends
-from sqlalchemy.orm import Session
-from . import seeder, models, schemas
-from .database import SessionLocal, engine
+from fastapi import FastAPI
+from . import seeder, models
+from .database import SessionLocal
 
 # create all DB tables
 # now commented out because this is done with Alembic

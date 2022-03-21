@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from .models import User, Role, user_roles
+from .models import User, Role
 
 # Commented out, there was an issue earlier with overlapping names from models
 # from .schemas import Role, RoleBase, RoleCreate, User, UserBase, UserCreate
