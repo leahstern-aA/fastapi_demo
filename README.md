@@ -9,7 +9,9 @@ data in a route.
 
 1. `pipenv install` to set up virtual environment with dependencies in the Pipfile
 2. Create a .env file with a SQLite DATABASE_URL (based on .env.example)
-3. `pipenv run uvicorn sql_app.main:app --reload` to run the application
+3. `pipenv run alembic upgrade head` to create SQLite database and tables
+and apply the existing migration
+4. `pipenv run uvicorn sql_app.main:app --reload` to run the application
     - You can view the application in your browser at localhost:8000
 
 ## Filesystem
