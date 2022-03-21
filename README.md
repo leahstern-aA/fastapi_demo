@@ -13,6 +13,7 @@ data in a route.
     - You can view the application in your browser at localhost:8000
 
 ## Filesystem
+```
 .
 └── alembic
     ├── versions       ->    Folder containing all migration version files
@@ -33,6 +34,7 @@ data in a route.
 └── alembic.ini        ->    Alembic's database configuration script
 └── Pipfile            ->    Virtual environment dependencies
 └── Pipfile.lock       ->    Metadata for virtual environment dependencies
+```
 
 ## SQLite and SQLAlchemy setup
 The SQLite database lives here: fastapi_demo/sql_app/sql_app.db. The database URL is
