@@ -1,0 +1,3 @@
+.venv
+.env
+sql_app/sql_app.db
