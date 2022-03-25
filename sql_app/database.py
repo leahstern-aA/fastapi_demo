@@ -24,3 +24,12 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 # DB models will inherit from this class to produce Table objects
 # and appropriate mapper() calls
 Base = declarative_base()
+
+# instantiate DB connection session
+def get_db_sesh():
+    db = SessionLocal()
+
+    try:
+        yield db
+    finally:
+        db.close()
