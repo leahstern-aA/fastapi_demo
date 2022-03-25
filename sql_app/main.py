@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from . import seeder, models
-from .database import SessionLocal
+from sql_app.routers import user_routes
 
 # create all DB tables
 # now commented out because this is done with Alembic
@@ -9,31 +8,10 @@ from .database import SessionLocal
 # instantiate FastAPI
 app = FastAPI()
 
-# instantiate DB connection session
-def get_db_sesh():
-    db = SessionLocal()
-
-    try:
-        yield db
-    finally:
-        db.close()
+# register routers with main application
+app.include_router(user_routes)
 
 # Root route
 @app.get("/")
 def index():
     return {"Hello": "World"}
-
-# Users route
-# Seeds users and returns all records in users table
-@app.get("/users/")
-def get_all_users():
-    # We need next() to get return value from Python functions that `yield`
-    # rather than `return`. This gets the actual value from the yielded
-    # generator object.
-    db = next(get_db_sesh())
-
-    if db:
-        seeder.seed(db)
-        return db.query(models.User).all()
-    else:
-        return {"error": "There was a problem retrieving users"}
