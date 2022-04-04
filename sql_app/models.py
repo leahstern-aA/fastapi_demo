@@ -31,3 +31,12 @@ class User(Base):
     middle_name = Column(String)
     gender = Column(String)
     roles = relationship("Role", back_populates="users", secondary=user_roles)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "first_name": self.first_name,
+            "last_name": self.last_name,
+            "middle_name": self.middle_name,
+            "gender": self.gender
+        }
