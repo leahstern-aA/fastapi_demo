@@ -38,6 +38,13 @@ and apply the existing migration
 └── Pipfile.lock       ->    Metadata for virtual environment dependencies
 ```
 
+## CSRF protection
+CSRF protection for this app was set up using the FastAPI CSRF Protect extension:
+https://github.com/aekasitt/fastapi-csrf-protect.
+
+This is a third-party package and needs to be installed before importing. I followed
+the set up instructions in the README for the FastAPI CSRF Protect project.
+
 ## SQLite and SQLAlchemy setup
 The SQLite database lives here: fastapi_demo/sql_app/sql_app.db. The database URL is
 specified in the .env file in the parent folder.
